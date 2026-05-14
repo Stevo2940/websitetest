@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revival of Romiosini | Ἀναβίωσις τῆς Ῥωμιοσύνης</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ═══ IMPERIAL BAND ═══ -->
+    <div class="imperial-band">
+        <div class="container">
+            <div class="dateline" id="dateline"></div>
+            <div class="top-links">
+                <div class="lang-toggle">
+                    <span class="active" data-lang="en">EN</span>
+                    <span data-lang="el">ΕΛ</span>
+                </div>
+                <a href="https://www.instagram.com/revival_of_romiosini/" target="_blank" rel="noopener">📸 Instagram ↗</a>
+                <a href="contact.html">✉ Submit Article</a>
+                <a href="#">☩ Newsletter</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ MASTHEAD ═══ -->
+    <header class="masthead">
+        <div class="container masthead-inner">
+            <svg class="masthead-ornament" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                <circle cx="40" cy="40" r="38" stroke="#2A1124" stroke-width="2"/>
+                <circle cx="40" cy="40" r="28" stroke="#D4AF37" stroke-width="1"/>
+                <path d="M40 12 L40 68 M12 40 L68 40 M20 20 L60 60 M60 20 L20 60" stroke="#2A1124" stroke-width="1.5"/>
+                <circle cx="40" cy="40" r="6" fill="#D4AF37"/>
+            </svg>
+            <div class="masthead-center">
+                <div class="logo-greek">Ἀναβίωσις τῆς Ῥωμιοσύνης</div>
+                <div class="logo-main">Revival <span class="of">of</span> Romiosini</div>
+                <div class="logo-divider">
+                    <div class="logo-divider-line"></div>
+                    <div class="logo-diamond"></div>
+                    <div class="logo-divider-line"></div>
+                </div>
+                <div class="logo-sub">History · Diaspora · Heritage · News</div>
+            </div>
+            <svg class="masthead-ornament" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                <circle cx="40" cy="40" r="38" stroke="#2A1124" stroke-width="2"/>
+                <circle cx="40" cy="40" r="28" stroke="#D4AF37" stroke-width="1"/>
+                <path d="M40 12 L40 68 M12 40 L68 40 M20 20 L60 60 M60 20 L20 60" stroke="#2A1124" stroke-width="1.5"/>
+                <circle cx="40" cy="40" r="6" fill="#D4AF37"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-inner">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">History & Archives</a></li>
+                    <li><a href="#">Diaspora</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Opinion</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ NEWS TICKER ═══ -->
+    <div class="ticker-wrap">
+        <div class="ticker-label">Live</div>
+        <div class="ticker-track">
+            <div class="ticker-content">
+                Bringing you live news from Greek & diaspora sources around the world.
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ MAIN CONTENT (Live Feeds Only) ═══ -->
+    <div class="container">
+        <div class="content-wrap">
+            <main>
+                <!-- Live Feed Section (all dynamic) -->
+                <div class="live-feeds">
+                    <div class="section-head">
+                        <h2>Live News</h2>
+                        <span class="section-greek">Ζωντανά Νέα</span>
+                        <span class="feed-source-info" id="feed-source-info"></span>
+                    </div>
+                    <div class="feed-tabs" role="tablist">
+                        <button class="feed-tab active" role="tab" aria-selected="true" onclick="switchTab(this, 'greece')">🇬🇷 Greece</button>
+                        <button class="feed-tab" role="tab" aria-selected="false" onclick="switchTab(this, 'cyprus')">🇨🇾 Cyprus</button>
+                        <button class="feed-tab" role="tab" aria-selected="false" onclick="switchTab(this, 'orthodoxy')">☦ Orthodoxy</button>
+                        <button class="feed-tab" role="tab" aria-selected="false" onclick="switchTab(this, 'diaspora')">🌍 Diaspora</button>
+                        <button class="feed-tab" role="tab" aria-selected="false" onclick="switchTab(this, 'world')">📰 World</button>
+                    </div>
+
+                    <div id="feed-greece" class="feed-panel active">
+                        <div class="feed-loading" id="loading-greece">Fetching latest from Greece…</div>
+                        <ul class="feed-list" id="list-greece"></ul>
+                    </div>
+                    <div id="feed-cyprus" class="feed-panel">
+                        <div class="feed-loading" id="loading-cyprus">Fetching latest from Cyprus…</div>
+                        <ul class="feed-list" id="list-cyprus"></ul>
+                    </div>
+                    <div id="feed-orthodoxy" class="feed-panel">
+                        <div class="feed-loading" id="loading-orthodoxy">Fetching latest Orthodox news…</div>
+                        <ul class="feed-list" id="list-orthodoxy"></ul>
+                    </div>
+                    <div id="feed-diaspora" class="feed-panel">
+                        <div class="feed-loading" id="loading-diaspora">Fetching diaspora news…</div>
+                        <ul class="feed-list" id="list-diaspora"></ul>
+                    </div>
+                    <div id="feed-world" class="feed-panel">
+                        <div class="feed-loading" id="loading-world">Fetching world news…</div>
+                        <ul class="feed-list" id="list-world"></ul>
+                    </div>
+                </div>
+            </main>
+
+            <!-- SIDEBAR (static widgets) -->
+            <aside class="sidebar">
+                <div class="widget instagram-widget">
+                    <div class="widget-head"><h3>📸 Instagram</h3></div>
+                    <div class="widget-body">
+                        <div class="ig-profile">
+                            <div class="ig-avatar">Ρ</div>
+                            <div>
+                                <div class="ig-name">Revival of Romiosini</div>
+                                <div class="ig-handle">@revival_of_romiosini</div>
+                                <div class="ig-stats"><strong>2.4K</strong> followers &nbsp;·&nbsp; <strong>180+</strong> posts</div>
+                            </div>
+                        </div>
+                        <div class="ig-grid" id="ig-grid"></div>
+                        <a href="https://www.instagram.com/revival_of_romiosini/" target="_blank" rel="noopener" class="ig-cta">Follow on Instagram</a>
+                    </div>
+                </div>
+                <div class="widget movement-widget">
+                    <div class="widget-head"><h3>The Movement</h3></div>
+                    <div class="widget-body">
+                        <div class="movement-cross">☩</div>
+                        <div class="movement-tagline">"A voice for Greeks everywhere"</div>
+                        <div class="movement-sub">Join a global network dedicated to preserving our profound historical roots and empowering our community across the diaspora.</div>
+                        <a href="https://www.instagram.com/revival_of_romiosini/" target="_blank" rel="noopener" class="movement-cta">Join the Movement</a>
+                    </div>
+                </div>
+                <div class="widget community-widget">
+                    <div class="widget-head"><h3>🗣 Community Voices</h3></div>
+                    <div class="widget-body" id="community-voices">
+                        <div class="community-item"><div class="community-item-title">"Our yiayia's recipes are living history — we're documenting them before they're lost."</div><div class="community-item-loc">📍 Melbourne, Australia</div></div>
+                        <div class="community-item"><div class="community-item-title">"The younger generation in our Chicago parish is rediscovering Byzantine chant."</div><div class="community-item-loc">📍 Chicago, USA</div></div>
+                        <div class="community-item"><div class="community-item-title">"We started a Greek language book club in Berlin — 40 members and growing."</div><div class="community-item-loc">📍 Berlin, Germany</div></div>
+                        <div style="text-align:center;margin-top:12px;"><a href="#" style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent-blue);border-bottom:1px solid var(--accent-blue);">Share Your Story →</a></div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <div class="widget-head"><h3>Trending Now</h3></div>
+                    <div class="widget-body">
+                        <ul class="trending-list">
+                            <li class="trending-item"><span class="trending-item-title">Diaspora Voting Rights: What You Need to Know for 2026</span></li>
+                            <li class="trending-item"><span class="trending-item-title">Architectural Marvels of the 12th-Century Byzantine Empire</span></li>
+                            <li class="trending-item"><span class="trending-item-title">Oakleigh Social Night: Full Event Gallery</span></li>
+                            <li class="trending-item"><span class="trending-item-title">The Reign of Basil II: Military Might and Imperial Expansion</span></li>
+                            <li class="trending-item"><span class="trending-item-title">Understanding Electoral System Projections for the Diaspora</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget quote-widget">
+                    <div class="widget-head"><h3>Words of the Elders</h3></div>
+                    <div class="widget-body">
+                        <div class="quote-text">As long as Greek is spoken and the Orthodox faith is kept, Romiosini lives.</div>
+                        <div class="quote-attr">— Patriarchal Tradition</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-brand-name">Revival of Romiosini</div>
+                    <div class="footer-brand-greek">Ἀναβίωσις τῆς Ῥωμιοσύνης</div>
+                    <p class="footer-desc">A dedicated digital portal exploring and preserving the profound history, culture, and enduring legacy of our heritage — a voice for Greeks around the world.</p>
+                    <a href="https://www.instagram.com/revival_of_romiosini/" target="_blank" rel="noopener" class="footer-ig-link">☩ Follow on Instagram</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Sections</h4>
+                    <ul>
+                        <li><a href="#">Latest News</a></li>
+                        <li><a href="#">Politics</a></li>
+                        <li><a href="#">Historical Archives</a></li>
+                        <li><a href="#">Diaspora Affairs</a></li>
+                        <li><a href="#">Opinion</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Heritage</h4>
+                    <ul>
+                        <li><a href="#">Byzantine Empire</a></li>
+                        <li><a href="#">Ottoman Period</a></li>
+                        <li><a href="#">1821 Revolution</a></li>
+                        <li><a href="#">Modern Greece</a></li>
+                        <li><a href="#">Orthodoxy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/revival_of_romiosini/" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="#">Contact Editorial</a></li>
+                        <li><a href="#">Submit an Article</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Advertise</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Revival of Romiosini <span class="divider">◆</span> All rights reserved <span class="divider">◆</span> Melbourne, Australia
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
